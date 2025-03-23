@@ -1,0 +1,16 @@
+{
+  "vars": {
+    "hash_salt": "$HASH_SALT"
+  },
+  "crud": {
+    "connection": {
+      "user": "$DB_LOGIN",
+      "password": "$DB_PASSWORD",
+      "db": "$CLIENTS_DB_NAME",
+      "schema": "$DB_SCHEMA_NAME",
+      "host": "$DB_HOST",
+      "port": "$DB_PORT",
+      "ssl_mode": "$DB_SSL_MODE"
+    }
+  }
+}

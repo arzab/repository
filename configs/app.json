@@ -1,0 +1,14 @@
+{
+  "app": {
+    "server_header": "repository",
+    "body_limit": 20971520
+  },
+  "port": "8080",
+  "router": {
+    "swagger": {
+      "path": "/swagger"
+    },
+    "websocket_path": "/ws",
+    "endpoints_path": "/api"
+  }
+}

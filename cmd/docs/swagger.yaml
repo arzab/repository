@@ -1,0 +1,588 @@
+basePath: /api/
+definitions:
+  bulk_create.Params:
+    properties:
+      users:
+        items:
+          $ref: '#/definitions/library.UserProperties'
+        type: array
+    type: object
+  bulk_update.Params:
+    properties:
+      users:
+        items:
+          $ref: '#/definitions/library.UserProperties'
+        type: array
+    type: object
+  count.Params:
+    description: count endpoint params
+    properties:
+      api_key:
+        type: string
+      created_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      created_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      deleted_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      deleted_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      group_id:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      sources_multi_pass:
+        default: false
+        type: boolean
+      updated_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      updated_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+    type: object
+  create.Params:
+    properties:
+      api_key:
+        type: string
+      group_id:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      sources_multi_pass:
+        default: false
+        type: boolean
+    type: object
+  library.UserProperties:
+    properties:
+      api_key:
+        type: string
+      group_id:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      sources_multi_pass:
+        default: false
+        type: boolean
+    type: object
+  list.Params:
+    properties:
+      api_key:
+        type: string
+      created_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      created_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      deleted_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      deleted_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      group_id:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      page_num:
+        example: 1
+        type: integer
+      page_size:
+        example: 10
+        type: integer
+      sources_multi_pass:
+        default: false
+        type: boolean
+      updated_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      updated_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+    type: object
+  models.Client:
+    properties:
+      api_key:
+        type: string
+      group_id:
+        type: string
+      group_name:
+        type: string
+      is_dev:
+        type: boolean
+      user_id:
+        type: string
+      user_name:
+        type: string
+    type: object
+  models.Group:
+    properties:
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      updated_at:
+        type: string
+    type: object
+  models.User:
+    properties:
+      api_key:
+        type: string
+      created_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      created_at:
+        type: string
+      created_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      deleted_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      deleted_at:
+        type: string
+      deleted_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      group_id:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      sources_multi_pass:
+        default: false
+        type: boolean
+      updated_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      updated_at:
+        type: string
+      updated_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+    type: object
+  read.Response:
+    properties:
+      api_key:
+        type: string
+      created_at:
+        type: string
+      deleted_at:
+        type: string
+      group_id:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      sources_multi_pass:
+        default: false
+        type: boolean
+      updated_at:
+        type: string
+    type: object
+  responses.ErrorResponse:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+      source:
+        type: string
+      status:
+        type: string
+    type: object
+  update.Params:
+    properties:
+      api_key:
+        type: string
+      group_id:
+        type: string
+      name:
+        type: string
+      sources_multi_pass:
+        type: boolean
+    type: object
+  update.Response:
+    properties:
+      api_key:
+        type: string
+      created_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      created_at:
+        type: string
+      created_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      deleted_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      deleted_at:
+        type: string
+      deleted_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      group_id:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+      sources_multi_pass:
+        default: false
+        type: boolean
+      updated_after:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+      updated_at:
+        type: string
+      updated_before:
+        example: "2020-01-01T00:00:00Z"
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Swagger API for some api.
+  termsOfService: http://swagger.io/terms/
+  title: Swagger API
+  version: "1.0"
+paths:
+  /clients/count:
+    post:
+      consumes:
+      - application/json
+      description: Retrieve a count of users based on the provided query parameters
+      parameters:
+      - description: comment
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/count.Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Кол-во пользователей
+          schema:
+            type: integer
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Count clients
+      tags:
+      - Clients
+  /clients/list:
+    post:
+      consumes:
+      - application/json
+      description: Retrieve a list of clients based on the provided query parameters
+      parameters:
+      - description: comment
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/list.Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Client'
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: List clients
+      tags:
+      - Clients
+  /groups:
+    post:
+      consumes:
+      - application/json
+      description: Create a new group with the provided request body
+      parameters:
+      - description: Group Name
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/create.Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Group'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Create a new group
+      tags:
+      - Groups
+  /groups/list:
+    post:
+      consumes:
+      - application/json
+      description: Retrieve a list of groups based on the provided body parameters
+      parameters:
+      - description: comment
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/list.Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Group'
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: List groups
+      tags:
+      - Groups
+  /users:
+    post:
+      consumes:
+      - application/json
+      description: Create a new user with the provided request body
+      parameters:
+      - description: library.UserProperties  object
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/library.UserProperties'
+      - description: No Cache
+        in: header
+        name: NoCache
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Create a new user
+      tags:
+      - Users
+  /users/{id}:
+    delete:
+      consumes:
+      - '*/*'
+      description: Deletes a user with the specified ID.
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Operation completed successfully
+          schema:
+            type: string
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Delete User
+      tags:
+      - Users
+    get:
+      consumes:
+      - application/json
+      description: Fetch a user by their unique ID with an option to bypass cache.
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: 'No cache (default: false)'
+        in: header
+        name: X-No-Cache
+        type: boolean
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/read.Response'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Get User by ID
+      tags:
+      - Users
+    put:
+      consumes:
+      - application/json
+      description: Update a specific user based on the provided user ID
+      parameters:
+      - description: User ID
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Update user object
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/update.Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/update.Response'
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Update user
+      tags:
+      - Users
+  /users/count:
+    post:
+      consumes:
+      - application/json
+      description: Retrieve a count of users based on the provided query parameters
+      parameters:
+      - description: comment
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/count.Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Кол-во пользователей
+          schema:
+            type: integer
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Count users
+      tags:
+      - Users
+  /users/list:
+    post:
+      consumes:
+      - application/json
+      description: Retrieve a list of users based on the provided query parameters
+      parameters:
+      - description: comment
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/list.Params'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.User'
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: List users
+      tags:
+      - Users
+  /users_bulk/create:
+    post:
+      parameters:
+      - description: User properties
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/bulk_create.Params'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.User'
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Create tariffs for specific endpoint
+      tags:
+      - Users
+  /users_bulk/update:
+    put:
+      parameters:
+      - description: User properties
+        in: body
+        name: body
+        required: true
+        schema:
+          $ref: '#/definitions/bulk_update.Params'
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.User'
+            type: array
+        default:
+          description: ""
+          schema:
+            $ref: '#/definitions/responses.ErrorResponse'
+      summary: Create tariffs for specific endpoint
+      tags:
+      - Users
+swagger: "2.0"
